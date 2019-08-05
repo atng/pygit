@@ -42,19 +42,21 @@ class LPAFormFill:
         if coordinates:
             x1 = float(coordinates[0])
             y1 = float(coordinates[1])
+            x2 = float(coordinates[2])
+            y2 = float(coordinates[3])
         else:
-            x1 = y1 = 0
+            x1 = x2 = y1 = y2 = 0
+
+        size = x2 - x1
 
         self.form.checkbox(
             name="cb1",
             x=x1,
             y=y1,
-            size=10,
+            size=size,
             checked=checked,
             buttonStyle="check",
-            borderColor=black,
-            fillColor=white,
-            textColor=black,
+            borderWidth=0,
             forceBorder=True)
 
         return self
@@ -98,14 +100,14 @@ class LPAFormFill:
         self.form.textfield(
             name="fname",
             value=value,
+            borderWidth=0,
             x=x1,
             y=y1,
-            borderStyle="inset",
-            borderColor=blue,
             width=width,
+            fontSize=9.5,
             height=height,
             textColor=black,
-            forceBorder=True)
+        )
 
         return self
 
